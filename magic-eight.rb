@@ -22,6 +22,12 @@ def reset_answer
   @random_answers
 end
 
+def print_answers
+  puts'Here are all of the answers.'
+  puts'-----------------------------'
+  puts @new_answers.uniq
+end
+
 def question
   puts'Type a question to get an answer, or type QUIT to end the program.'  
     @user_question = gets.chomp.downcase 
@@ -30,6 +36,8 @@ def question
         add_answer
       when 'will i graduate?'
         reset_answer
+      when 'what is the answer?'
+        print_answers
       when 'quit'
         puts'Thanks for using the Magic Eight Ball. Please play again!'
         exit (0) 
@@ -37,9 +45,8 @@ def question
         @user_question = @random_answers.sample 
         puts "The Magic Eight Ball says: #{@user_question}"  
     end
-  question     
+    question     
 end 
- 
 question  
  
  
